@@ -1,21 +1,26 @@
-import tkinter as tk
-import random, string
+from tkinter import *
 
-# Main Window setup
-root = tk.Tk()
-root.title("Quick Pass")
-root.geometry("300x150")
+window = Tk()
+window.title('My Website')
+window.geometry('700x700')
 
-# Password display ke liye label
-display = tk.Label(root, text="Click Generate", font=("Courier", 14, "bold"), pady=10)
-display.pack()
+# 1. Greeting Label
+greeting = Label(window, text='This is the website in which you enter a password and then win rewards.')
+greeting.pack(pady=20)
 
-# Characters ka pool (Short code)
-pool = string.ascii_letters + string.digits + "@#$%"
+# 2. Input Label
+Label(window, text="Niche apna password likhein:").pack()
 
-# "GENERATE" Button: Lambda function ke saath (Single Line Logic)
-tk.Button(root, text="GENERATE", bg="blue", fg="white", font=("Arial", 10, "bold"),
-          command=lambda: display.config(text="".join(random.sample(pool, 12)), fg="green")
-          ).pack(pady=20)
+# 3. Password Entry (Jahan user likhega)
+password_entry = Entry(window, show='*')
+password_entry.pack(pady=10)
 
-root.mainloop()
+# 4. Result dikhane ke liye ek khali Label
+result_label = Label(window, text="")
+result_label.pack(pady=10)
+
+# 5. Button (Abhi is par click karne se kuch nahi hoga kyunke function nahi hai)
+submit_btn = Button(window, text="Win Reward!")
+submit_btn.pack()
+
+window.mainloop()
